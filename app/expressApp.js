@@ -76,7 +76,7 @@ const expressApp = (page) => {
         return
       }
       try {
-        await page.setContent(decodeURI(html))
+        await page.setContent(decodeURIComponent(html))
         const buff = await page.pdf(getPdfOption(req.body.pdf_option))
         res.status(200)
         res.contentType("application/pdf")
@@ -138,7 +138,7 @@ const expressApp = (page) => {
         return
       }
       try {
-        await page.setContent(decodeURI(html))
+        await page.setContent(decodeURIComponent(html))
         const buff = await page.screenshot({ fullPage: true })
         res.status(200)
         res.contentType("image/png")
