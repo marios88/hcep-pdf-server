@@ -76,7 +76,7 @@ const expressApp = (page) => {
         return
       }
       try {
-        await page.setContent(html)
+        await page.setContent(decodeURI(html))
         const buff = await page.pdf(getPdfOption(req.body.pdf_option))
         res.status(200)
         res.contentType("application/pdf")
