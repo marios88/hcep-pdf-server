@@ -138,7 +138,7 @@ const expressApp = (page) => {
         return
       }
       try {
-        await page.setContent(html)
+        await page.setContent(decodeURI(html))
         const buff = await page.screenshot({ fullPage: true })
         res.status(200)
         res.contentType("image/png")
